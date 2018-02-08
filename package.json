@@ -1,0 +1,23 @@
+{
+  "name": "input-data-validate",
+  "version": "0.0.1",
+  "description": "Validate input data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walik91/input-data-validate.git"
+  },
+  "keywords": [
+    "Validate",
+    "data"
+  ],
+  "author": "Zaica Valentin <walik91@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walik91/input-data-validate/issues"
+  },
+  "homepage": "https://github.com/walik91/input-data-validate#readme"
+}
