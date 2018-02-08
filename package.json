@@ -1,6 +1,6 @@
 {
   "name": "input-data-validate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Validate input data",
   "main": "index.js",
   "scripts": {
