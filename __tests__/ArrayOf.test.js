@@ -47,6 +47,12 @@ describe('ArrayOf', () => {
     }, {
       interests: ['sport', 'skysurfing']
     }).success).toBe(false);
+
+    expect(validate.check({
+      interests: validate.arrayOf(validate.string.oneOf(['music', 'films', 'sport', 'games'])).length(2)
+    }, {
+      interests: ['music', 'films']
+    }).success).toBe(true);
   });
 
   test('is array of number', () => {
