@@ -1,41 +1,35 @@
-module.exports = new class {
-    check(dataTypes, dataList) {
-    	this.result = {
-    		success: true,
-    		invalid: []
-    	};
+const StringCheck = require('./lib/StringCheck');
+const NumberCheck = require('./lib/NumberCheck');
+const ArrayOf = require('./lib/ArrayOf');
 
-        Object.keys(dataTypes).forEach(field => {
-        	Object.keys(dataTypes[field]).forEach(param => {
-        		switch(param) {
-        			case 'length':
-        				this.checkLength(field, dataList[field], dataTypes[field][param]);
-        				break;
-        			default:
+class InputDataValidate {
+  get string() {
+    return new StringCheck();
+  }
 
-        				break;
-        		}
-        	});
-        });
+  get number() {
+    return new NumberCheck();
+  }
 
-        return this.result;
-    }
+  check(dataTypes, dataList) {
+    this.result = {
+      success: true,
+      invalid: []
+    };
 
-    checkLength(field, value, property) {
-    	if (typeof property === 'integer' && value.length !== property) {
-    		this.result.success = false;
-    		this.result.invalid.push(field);
+    Object.keys(dataTypes).forEach((field) => {
+      if (!dataTypes[field].check(dataList[field])) {
+        this.result.success = false;
+        this.result.invalid.push(field);
+      }
+    });
 
-    		return false;
-    	}
+    return this.result;
+  }
 
-    	if (typeof property === 'object' && Array.isArray(property) && (value.length < property[0] || value.length > property[1])) {
-			this.result.success = false;
-			this.result.invalid.push(field);
-
-			return false;
-    	}
-
-    	return true;
-    }
+  arrayOf(rules) {
+    return new ArrayOf(this, rules);
+  }
 }
+
+module.exports = new InputDataValidate();
