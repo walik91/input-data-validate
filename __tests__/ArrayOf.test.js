@@ -53,6 +53,30 @@ describe('ArrayOf', () => {
     }, {
       interests: ['music', 'films']
     }).success).toBe(true);
+
+    expect(validate.check({
+      interests: validate.arrayOf(validate.string.isRequired).length(2)
+    }, {
+      interests: []
+    }).success).toBe(false);
+
+    expect(validate.check({
+      interests: validate.arrayOf(validate.string.isRequired).length(2)
+    }, {
+      interests: ['', '']
+    }).success).toBe(false);
+
+    expect(validate.check({
+      interests: validate.arrayOf(validate.string.isRequired).length(2)
+    }, {
+      interests: ['test', '']
+    }).success).toBe(false);
+
+    expect(validate.check({
+      interests: validate.arrayOf(validate.string.isRequired).length(2)
+    }, {
+      interests: ['test', 'test2']
+    }).success).toBe(true);
   });
 
   test('is array of number', () => {
