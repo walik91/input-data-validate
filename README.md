@@ -3,13 +3,11 @@
 Nodejs library for validate data by rules provided.
 
 ## Instalation
-
 ```shell
 npm install input-data-validate
 ```
 
 ## Usage
-
 ```js
 const validate = require('input-data-validate');
 
@@ -26,4 +24,9 @@ validate.check({
   age: '27',
   interests: ['music', 'games']
 })
+```
+
+## Run tests
+```shell
+npm test
 ```

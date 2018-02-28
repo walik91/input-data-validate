@@ -1,6 +1,6 @@
 {
   "name": "input-data-validate",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Validate input data",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "data"
   ],
   "author": "Zaica Valentin <walik91@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/walik91/input-data-validate/issues"
   },
@@ -23,6 +23,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0"
+    "eslint-plugin-import": "^2.9.0",
+    "jest": "^22.4.2"
   }
 }
