@@ -78,4 +78,18 @@ describe('NumberCheck', () => {
       age: '31'
     }).success).toBe(false);
   });
+
+  test('undefiend object', () => {
+    expect(validate.check({
+      age: validate.number.lt(25)
+    }).success).toBe(true);
+
+    expect(validate.check({
+      age: validate.number.lt(25).isRequired
+    }).success).toBe(false);
+
+    expect(validate.check({
+      age: validate.number.gt(25)
+    }).success).toBe(false);
+  });
 });

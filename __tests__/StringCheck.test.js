@@ -142,5 +142,11 @@ describe('StringCheck', () => {
       username: 'Lorem ipsum'
     }).success).toBe(true);
   });
+
+  test('undefiend object', () => {
+    expect(validate.check({
+      username: validate.string.length(5, 10)
+    }).success).toBe(false);
+  });
 });
 
