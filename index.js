@@ -11,7 +11,7 @@ class InputDataValidate {
     return new NumberCheck();
   }
 
-  check(dataTypes, dataList) {
+  check(dataTypes, dataList = {}) {
     this.result = {
       success: true,
       invalid: []
